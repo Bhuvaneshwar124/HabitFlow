@@ -1,32 +1,65 @@
-# React + TypeScript + Vite
+# HabitFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+HabitFlow is a modern habit-tracking web app built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Create, edit, delete, and track daily habits
+- Habit categories, search, and filtering
+- Dashboard with progress overview and habit cards
+- Calendar and analytics views with streak and completion insights
+- Light/Dark theme support
+- Local-first persistence with `localStorage`
+- JSON backup import/export
+- Reset app data or clear history from settings
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + TypeScript
+- Vite 8
+- Tailwind CSS 4
+- Oxlint
+- Lucide icons + canvas-confetti
 
-## Expanding the Oxlint configuration
+## Getting Started
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### Prerequisites
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- Node.js 20+
+- npm
+
+### Install and run
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+App runs at `http://localhost:5173` by default.
+
+## Available Scripts
+
+- `npm run dev` — Start development server
+- `npm run build` — Type-check and build for production
+- `npm run lint` — Run Oxlint
+- `npm run preview` — Preview production build locally
+
+## Project Structure
+
+```text
+src/
+  components/   UI views and reusable components
+  context/      Habit and toast state management
+  types/        Shared TypeScript types
+  utils/        Date helpers, storage, and seed data
+```
+
+## Data Storage
+
+HabitFlow stores all data in browser `localStorage` using:
+
+- `habitflow_habits`
+- `habitflow_records`
+- `habitflow_settings`
+
+No backend service is required.
